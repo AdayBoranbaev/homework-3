@@ -1,8 +1,13 @@
 def my_func():
-    num_1 = float(input("Введите число №1: "))
-    num_2 = float(input("Введите число №2: "))
-    div = num_1 / num_2
-    return div
+    try:
+        num_1 = float(input("Введите число №1: "))
+        num_2 = float(input("Введите число №2: "))
+        div = num_1 / num_2
+    except ValueError:
+         return "Value Error"
+    except ZeroDivisionError:
+        return "Division by zero forbidden!!!"
+    return round(div, 4)
 
 res = my_func()
 print(res)
@@ -56,6 +61,20 @@ while x > 0:
 
 #---------------------------------------------------------------
 
+def sum_num():
+    s=0
+    while True:
+        in_list = input("Enter a number, 'q' to exit:" ).split()
+        for num in in_list:
+            if num.lower() == "q":
+                return
+            else:
+                try:
+                    s += int(num)
+                except ValueError:
+                    print("To exit the program, enter - 'q' /")
+        print(f"Sum of numbers = {s}")
+print(sum_num())
 
 
 #---------------------------------------------------------------
